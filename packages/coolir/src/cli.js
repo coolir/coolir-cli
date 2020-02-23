@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { cli } from 'mania';
+import { cli } from 'coolir-commander';
 import { clone as workspace } from './workspace';
 import { clone as workspaceModule } from './workspace-module';
 import { clone as npmModule } from './npm-module';

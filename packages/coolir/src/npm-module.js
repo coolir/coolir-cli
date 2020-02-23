@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 
-const repo = 'git@github.com:pyramation/tmpl-npm-module.git';
+const repo = 'git@github.com:coolir/tmpl-npm-module.git';
 const clone = async argv => {
   if (!shell.which('git')) {
     shell.echo('Sorry, this script requires git');

@@ -1,6 +1,6 @@
 {
   "name": "coolir",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "coolir",
   "author": "Dan Lynch <pyramation.com>",
   "homepage": "https://github.com/coolir/coolir-cli/tree/master/packages/coolir#readme",
@@ -13,7 +13,9 @@
     "lib": "src",
     "test": "__tests__"
   },
-  "files": ["main"],
+  "files": [
+    "main"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coolir/coolir-cli.git"

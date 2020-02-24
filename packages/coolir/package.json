@@ -13,9 +13,7 @@
     "lib": "src",
     "test": "__tests__"
   },
-  "files": [
-    "main"
-  ],
+  "files": ["main"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coolir/coolir-cli.git"

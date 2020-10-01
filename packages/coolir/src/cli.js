@@ -10,12 +10,16 @@ import { clone as styledNpmModule } from './styled-npm-module';
 import { clone as launchQLServer } from './launchql-server';
 import { clone as graphileServer } from './graphile-server';
 import { clone as graphilePlugin } from './graphile-plugin';
+import { clone as nextSite } from './next-site';
+import { clone as craApp } from './cra-app';
 
 export const go = async () => {
   await cli({
     npmModule,
     workspace,
     workspaceModule,
+    craApp,
+    nextSite,
     launchQLServer,
     graphileServer,
     graphilePlugin,

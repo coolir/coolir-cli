@@ -18,7 +18,7 @@ export const go = async () => {
     workspaceModule,
     launchQLServer,
     graphileServer,
-    graphileServer,
+    graphilePlugin,
     styledWorkspace,
     styledWorkspaceModule,
     styledNpmModule

@@ -58,6 +58,5 @@
     "inquirerer": "0.1.3",
     "mkdirp": "1.0.4",
     "shelljs": "0.8.5"
-  },
-  "gitHead": "f82e291d165d66e2105c2caa9c43d6eee3c98812"
+  }
 }

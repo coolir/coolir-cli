@@ -7,6 +7,8 @@ import { clone as npmModule } from './npm-module';
 import { clone as tsNpmModule } from './ts-npm-module';
 import { clone as styledWorkspace } from './styled-workspace';
 import { clone as styledWorkspaceModule } from './styled-workspace-module';
+import { clone as chakraWorkspace } from './chakra-ui-workspace';
+import { clone as chakraWorkspaceModule } from './chakra-ui-workspace-app';
 import { clone as styledNpmModule } from './styled-npm-module';
 import { clone as launchQLServer } from './launchql-server';
 import { clone as graphileServer } from './graphile-server';
@@ -25,6 +27,8 @@ export const go = async () => {
     launchQLServer,
     graphileServer,
     graphilePlugin,
+    chakraWorkspace,
+    chakraWorkspaceModule,
     styledWorkspace,
     styledWorkspaceModule,
     styledNpmModule

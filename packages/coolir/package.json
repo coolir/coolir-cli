@@ -52,7 +52,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@pyramation/prompt": "0.1.1",
-    "coolir-commander": "0.3.9",
+    "coolir-commander": "^0.3.10",
     "dargs": "7.0.0",
     "glob": "8.0.3",
     "inquirerer": "0.1.3",

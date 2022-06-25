@@ -6,35 +6,18 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 
-const repo = 'git@github.com:coolir/tmpl-styled-yarn-workspace-module.git';
+const repo = 'git@github.com:coolir/tmpl-chakra-ui-workspace.git';
 const clone = async argv => {
   if (!shell.which('git')) {
     shell.echo('Sorry, this script requires git');
     return shell.exit(1);
   }
 
-  let pkg;
-  let lerna;
-  try {
-    pkg = JSON.parse(fs.readFileSync(process.cwd() + '/package.json'));
-    lerna = JSON.parse(fs.readFileSync(process.cwd() + '/lerna.json'));
-  } catch (e) {
-    console.log('must be inside of a yarn workspace project!');
-    process.exit(0);
-  }
-
-  if (!fs.lstatSync('packages').isDirectory()) {
-    console.log(
-      'must be inside of a yarn workspace project with packages folder!'
-    );
-    process.exit(0);
-  }
-
   const { name } = argv;
 
-  shell.cd('packages');
   shell.exec(`git clone ${repo} ${name}`);
   shell.cd(name);
+  mkdirp.sync('packages');
 
   const questions = JSON.parse(fs.readFileSync(`.questions.json`));
 
@@ -45,14 +28,11 @@ const clone = async argv => {
     .exec('git config --global user.email', { silent: true })
     .trim();
 
-  // @__USERNAME__/__MODULENAME__
-  // __PACKAGE_IDENTIFIER__
   const args = dargs(
     {
       _: [],
       ...argv,
-      __PROJECTURL__: pkg.repository.url,
-      __MODULENAME__: name,
+      __PROJECTNAME__: name,
       __USERFULLNAME__: fullname,
       __USEREMAIL__: email,
     },
@@ -73,20 +53,7 @@ const clone = async argv => {
     []
   );
 
-  let scopedResults;
-  if (results.__ACCESS__ === 'public') {
-    scopedResults = await prompt(
-      [
-        {
-          type: 'confirm',
-          name: 'scoped',
-          message: 'use npm scopes?',
-          required: true,
-        },
-      ],
-      []
-    );
-  }
+  console.log({ license });
 
   const files = []
     .concat(glob(process.cwd() + '/**/.*'))
@@ -111,27 +78,9 @@ Proprietary and confidential`;
         content = content.replace(new RegExp(key, 'g'), results[key]);
       }
     });
-    if (results.__ACCESS__ === 'public') {
-      if (scopedResults.scoped) {
-        content = content.replace(
-          /__PACKAGE_IDENTIFIER__/g,
-          `@${results.__USERNAME__}/${results.__MODULENAME__}`
-        );
-      } else {
-        content = content.replace(
-          /__PACKAGE_IDENTIFIER__/g,
-          `${results.__MODULENAME__}`
-        );
-      }
-    } else {
-      content = content.replace(
-        /__PACKAGE_IDENTIFIER__/g,
-        `@${results.__USERNAME__}/${results.__MODULENAME__}`
-      );
-    }
 
     if (path.basename(templateFile) === 'README.md') {
-      content = `# ${results.__MODULENAME__}`;
+      content = `# ${results.__PROJECTNAME__}`;
     }
 
     fs.writeFileSync(templateFile, content);
@@ -139,6 +88,7 @@ Proprietary and confidential`;
 
   shell.rm('-rf', '.git');
   shell.rm('-rf', '.questions.json');
+  shell.exec(`git init .`);
 
   console.log(`
 
@@ -146,8 +96,7 @@ Proprietary and confidential`;
  (o o)
 ooO--(_)--Ooo-
 
-
-✨ Great work! 
+✨ Great work!
 `);
 };
 
@@ -155,7 +104,7 @@ clone.questions = [
   {
     _: true,
     name: 'name',
-    message: 'Enter your new module name',
+    message: 'Enter your new workspace project name',
     required: true,
   },
 ];

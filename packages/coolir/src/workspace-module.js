@@ -101,7 +101,7 @@ const clone = async argv => {
       path.basename(templateFile) === 'LICENSE' &&
       license.__LICENSE__ === 'closed'
     ) {
-      content = `Copyright (c) 2020 __USERFULLNAME__ <__USEREMAIL__> - All Rights Reserved
+      content = `Copyright (c) 2022 __USERFULLNAME__ <__USEREMAIL__> - All Rights Reserved
 Unauthorized copying via any medium is strictly prohibited
 Proprietary and confidential`;
     }

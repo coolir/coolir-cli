@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.16](https://github.com/coolir/coolir-cli/compare/coolir@0.6.15...coolir@0.6.16) (2022-07-14)
+
+**Note:** Version bump only for package coolir
+
+
+
+
+
 ## [0.6.15](https://github.com/coolir/coolir-cli/compare/coolir@0.6.14...coolir@0.6.15) (2022-06-25)
 
 **Note:** Version bump only for package coolir

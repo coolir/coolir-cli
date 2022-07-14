@@ -5,6 +5,7 @@ import { clone as workspace } from './workspace';
 import { clone as workspaceModule } from './workspace-module';
 import { clone as npmModule } from './npm-module';
 import { clone as tsNpmModule } from './ts-npm-module';
+import { clone as tsReactNpmModule } from './ts-react-npm-module';
 import { clone as styledWorkspace } from './styled-workspace';
 import { clone as styledWorkspaceModule } from './styled-workspace-module';
 import { clone as chakraWorkspace } from './chakra-ui-workspace';
@@ -20,6 +21,7 @@ export const go = async () => {
   await cli({
     npmModule,
     tsNpmModule,
+    tsReactNpmModule,
     workspace,
     workspaceModule,
     craApp,

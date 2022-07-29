@@ -3,6 +3,8 @@
 import { cli } from 'coolir-commander';
 import { clone as workspace } from './workspace';
 import { clone as workspaceModule } from './workspace-module';
+import { clone as tsWorkspace } from './ts-workspace';
+import { clone as tsWorkspaceModule } from './ts-workspace-module';
 import { clone as npmModule } from './npm-module';
 import { clone as tsNpmModule } from './ts-npm-module';
 import { clone as tsReactNpmModule } from './ts-react-npm-module';
@@ -22,6 +24,8 @@ export const go = async () => {
     npmModule,
     tsNpmModule,
     tsReactNpmModule,
+    tsWorkspace,
+    tsWorkspaceModule,
     workspace,
     workspaceModule,
     craApp,

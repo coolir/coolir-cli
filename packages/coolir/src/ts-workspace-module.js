@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 
-const repo = 'git@github.com:coolir/tmpl-styled-yarn-workspace-module.git';
+const repo = 'git@github.com:coolir/tmpl-ts-yarn-workspace-module.git';
 const clone = async argv => {
   if (!shell.which('git')) {
     shell.echo('Sorry, this script requires git');
